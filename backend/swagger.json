@@ -1,0 +1,146 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Student Career Guidance API",
+    "version": "1.0.0",
+    "description": "API for user signup/login, career options, exams, and advisors."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "summary": "Signup User",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["name", "email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User registered successfully" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login User",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login successful" }
+        }
+      }
+    },
+    "/data/after-10th": {
+      "get": {
+        "summary": "Career options after 10th",
+        "responses": {
+          "200": { "description": "List of streams, diploma and skill courses" }
+        }
+      }
+    },
+    "/data/after-12th": {
+      "get": {
+        "summary": "Career options after 12th",
+        "responses": {
+          "200": { "description": "List of courses after 12th by stream" }
+        }
+      }
+    },
+    "/exams/after-10th": {
+      "get": {
+        "summary": "Exams after 10th",
+        "responses": {
+          "200": { "description": "List of government, competitive, and diploma exams" }
+        }
+      }
+    },
+    "/exams/after-12th": {
+      "get": {
+        "summary": "Exams after 12th",
+        "responses": {
+          "200": { "description": "List of exams by science, commerce, arts" }
+        }
+      }
+    },
+    "/advisors/signup": {
+      "post": {
+        "summary": "Signup Advisor",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstname": { "type": "string" },
+                  "lastname": { "type": "string" },
+                  "email": { "type": "string" },
+                  "phone": { "type": "string" },
+                  "password": { "type": "string" },
+                  "city": { "type": "string" },
+                  "qualification": { "type": "string" }
+                },
+                "required": ["firstname", "lastname", "email", "phone", "password", "city", "qualification"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Advisor registered successfully" }
+        }
+      }
+    },
+    "/advisors/login": {
+      "post": {
+        "summary": "Login Advisor",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Login successful" }
+        }
+      }
+    }
+  }
+}
