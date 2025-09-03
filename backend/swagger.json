@@ -22,11 +22,17 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string" },
+                  "firstName": { "type": "string" },
+                  "lastName":{ "type": "string" },
                   "email": { "type": "string" },
-                  "password": { "type": "string" }
+                  "password": { "type": "string" },
+                  "studyingIn": { "type": "string" },
+                  "gender": { "type": "string" },
+                  "age": { "type": "number" },
+                  "city": { "type": "string" },
+                  "contactNumber": { "type": "string" }
                 },
-                "required": ["name", "email", "password"]
+                "required": ["firstName","lastName", "email", "password", "studyingIn", "gender", "age", "city", "contactNumber"]
               }
             }
           }
@@ -56,6 +62,21 @@
         },
         "responses": {
           "200": { "description": "Login successful" }
+        }
+      }
+    },
+    "/auth/profile": {
+      "get": {
+        "summary": "Get User Profile",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "User profile data" }
         }
       }
     },

@@ -1,0 +1,105 @@
+{
+  "quizTitle": "Career Interest and Aptitude Quiz - Post Grade 10",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which school subject do you enjoy the most?",
+      "options": ["Mathematics", "Science", "Social Science", "Business Studies or Economics", "Creative Arts"]
+    },
+    {
+      "id": 2,
+      "question": "If given a choice, which project would you prefer to work on?",
+      "options": ["Building a robot or model", "Creating a business plan", "Writing a play or designing a poster", "Conducting a science experiment", "Creating a short film or animation"]
+    },
+    {
+      "id": 3,
+      "question": "Which of these magazines or videos are you more likely to enjoy?",
+      "options": ["Science and tech experiments", "Business trends and startup stories", "Documentaries on history or politics", "DIY or craft videos", "Healthcare and medical innovations"]
+    },
+    {
+      "id": 4,
+      "question": "What kind of tasks make you feel more excited?",
+      "options": ["Solving puzzles and equations", "Selling or promoting a product", "Debating or expressing opinions", "Designing or making creative work", "Fixing or assembling something practical"]
+    },
+    {
+      "id": 5,
+      "question": "You have one free hour every day. What would you most likely do?",
+      "options": ["Watch science or tech videos", "Explore finance or investment games", "Write or sketch in a journal", "Learn design or multimedia tools", "Practice a vocational skill"]
+    },
+    {
+      "id": 6,
+      "question": "Which of these would be your dream school activity?",
+      "options": ["Science fair", "Commerce fest", "Model UN or debate", "Art and culture exhibition", "Hands-on workshop"]
+    },
+    {
+      "id": 7,
+      "question": "What kind of test do you usually score well in?",
+      "options": ["Numerical reasoning", "Theory and concepts", "Creative writing or visual work", "Business case studies", "Hands-on practical exams"]
+    },
+    {
+      "id": 8,
+      "question": "Which statement best describes you?",
+      "options": ["Good with numbers and logic", "Understand scientific concepts quickly", "Creative mind and imagination", "Understand people’s emotions", "Enjoy practical, skill-based learning"]
+    },
+    {
+      "id": 9,
+      "question": "Your friends usually ask you for help with:",
+      "options": ["Math or Physics homework", "Business or budgeting", "Writing or design", "Emotional support or advice", "Fixing gadgets or using tools"]
+    },
+    {
+      "id": 10,
+      "question": "How comfortable are you with public speaking or presenting ideas?",
+      "options": ["Very confident", "Prefer working behind the scenes", "Speak when needed", "Express ideas through visuals", "Prefer explaining concepts logically"]
+    },
+    {
+      "id": 11,
+      "question": "What kind of memory do you have best?",
+      "options": ["Formulas or data", "Stories and events", "Faces and emotions", "Business trends", "How things work"]
+    },
+    {
+      "id": 12,
+      "question": "Which activity would you likely win a prize for?",
+      "options": ["Science model", "Business pitch", "Art/drawing", "Drama or speech", "Skill-based contest"]
+    },
+    {
+      "id": 13,
+      "question": "How do you usually solve problems?",
+      "options": ["With logic and formulas", "By discussing and debating", "Creatively", "By trying it hands-on", "Through research and analysis"]
+    },
+    {
+      "id": 14,
+      "question": "Which role do you usually play in a group project?",
+      "options": ["Planner or analyst", "Designer or creator", "Speaker or presenter", "Technician or implementer", "Researcher or organizer"]
+    },
+    {
+      "id": 15,
+      "question": "Which type of environment do you prefer to work in?",
+      "options": ["Structured and scientific", "Dynamic and business-oriented", "Creative and expressive", "Practical and hands-on", "Service-based or collaborative"]
+    },
+    {
+      "id": 16,
+      "question": "When it comes to taking decisions, you:",
+      "options": ["Rely on data", "Follow intuition", "Ask others", "Try it practically", "Do thorough research"]
+    },
+    {
+      "id": 17,
+      "question": "What motivates you the most?",
+      "options": ["Innovation and discovery", "Financial independence", "Expressing ideas", "Mastering a skill", "Helping others"]
+    },
+    {
+      "id": 18,
+      "question": "Which of these future careers sounds most exciting?",
+      "options": ["Scientist or Engineer", "Entrepreneur or CA", "Lawyer, Writer, or Journalist", "Fashion Designer or Photographer", "Nurse, Technician, or Hotel Manager"]
+    },
+    {
+      "id": 19,
+      "question": "What kind of lifestyle do you imagine for yourself?",
+      "options": ["Research and stability", "Fast-paced and financial", "Creative and impactful", "Flexible and technical", "Service-oriented and social"]
+    },
+    {
+      "id": 20,
+      "question": "Which skill would you most want to master in the next year?",
+      "options": ["Coding or experiments", "Financial planning", "Creative writing or filmmaking", "Design or video editing", "Culinary or healthcare skills"]
+    }
+  ]
+}

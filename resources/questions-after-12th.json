@@ -1,0 +1,105 @@
+{
+  "quizTitle": "Career Discovery Quiz - Post Grade 12",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which subject did you enjoy most in Class 12?",
+      "options": ["Physics / Chemistry / Math", "Biology / Environmental Science", "Accountancy / Business Studies / Economics", "History / Psychology / Sociology", "Art / Media / Design"]
+    },
+    {
+      "id": 2,
+      "question": "Which kind of career do you see yourself in?",
+      "options": ["Engineering and technology", "Healthcare and medicine", "Business or finance", "Writing or social sciences", "Creative industries or design"]
+    },
+    {
+      "id": 3,
+      "question": "What would you prefer to spend 3 hours doing?",
+      "options": ["Building something technical", "Learning about the human body", "Analyzing business cases", "Writing or making a video", "Designing something visually"]
+    },
+    {
+      "id": 4,
+      "question": "If you had to choose a dream internship, what would it be in?",
+      "options": ["Tech company or engineering lab", "Hospital or clinic", "Finance firm or startup", "Media house or NGO", "Creative studio or hotel chain"]
+    },
+    {
+      "id": 5,
+      "question": "Which of these exams are you most interested in (or have taken)?",
+      "options": ["JEE / CUET PCM / BITSAT", "NEET / CUET PCB", "CUET Commerce / IPMAT", "CLAT / CUET Humanities", "NIFT / NID / Design Aptitude Test"]
+    },
+    {
+      "id": 6,
+      "question": "What type of content do you consume most online?",
+      "options": ["Tech tutorials", "Medical/health content", "Business or finance videos", "News or social topics", "Fashion or design content"]
+    },
+    {
+      "id": 7,
+      "question": "You are more curious about:",
+      "options": ["Machines and coding", "Health and biology", "Finance and markets", "Society and human behavior", "Design and creativity"]
+    },
+    {
+      "id": 8,
+      "question": "Which entrance exam or subject did you perform best in?",
+      "options": ["JEE / PCM subjects", "NEET / PCB subjects", "Commerce / CUET", "Humanities / Law entrance", "Design or creative entrance"]
+    },
+    {
+      "id": 9,
+      "question": "Which of these do you find easiest to do?",
+      "options": ["Solve logic/math problems", "Memorize biological terms", "Make business presentations", "Write or speak persuasively", "Design creatively"]
+    },
+    {
+      "id": 10,
+      "question": "What type of questions do you usually answer best in tests?",
+      "options": ["Numerical", "Diagram-based", "Case study-based", "Essay-type", "Design-based"]
+    },
+    {
+      "id": 11,
+      "question": "What’s your general academic strength?",
+      "options": ["Technical analysis", "Medical detail", "Financial planning", "Understanding society", "Artistic skills"]
+    },
+    {
+      "id": 12,
+      "question": "How do you handle a challenging task?",
+      "options": ["Solve step-by-step", "Cross-check details", "Evaluate ROI", "Brainstorm ideas", "Experiment hands-on"]
+    },
+    {
+      "id": 13,
+      "question": "You get praise most often for:",
+      "options": ["Problem-solving", "Being precise", "Business thinking", "Empathy or clarity", "Creativity"]
+    },
+    {
+      "id": 14,
+      "question": "You learn best through:",
+      "options": ["Data and experiments", "Observation", "Real-world application", "Discussions", "Creative practice"]
+    },
+    {
+      "id": 15,
+      "question": "What motivates you most in a career?",
+      "options": ["Innovation", "Helping people", "Wealth and leadership", "Social impact", "Creative freedom"]
+    },
+    {
+      "id": 16,
+      "question": "Which working style suits you best?",
+      "options": ["Structured and logical", "Empathetic and precise", "Strategic and fast-paced", "Collaborative", "Experimental"]
+    },
+    {
+      "id": 17,
+      "question": "How do you feel about long academic programs (4–5 years)?",
+      "options": ["Fine for technical fields", "Necessary for medical", "Only if ROI is high", "Prefer shorter courses", "Depends on passion"]
+    },
+    {
+      "id": 18,
+      "question": "Which of these sounds most exciting to you?",
+      "options": ["Smart home system", "Disease diagnosis", "Product launch", "Social campaign", "Fashion collection"]
+    },
+    {
+      "id": 19,
+      "question": "You are more comfortable with:",
+      "options": ["Machines", "Lab work", "Spreadsheets", "People and stories", "Visual design"]
+    },
+    {
+      "id": 20,
+      "question": "In your free time, you prefer:",
+      "options": ["Coding or tinkering", "Reading science blogs", "Watching business shows", "Podcasting or journaling", "Drawing or editing"]
+    }
+  ]
+}
