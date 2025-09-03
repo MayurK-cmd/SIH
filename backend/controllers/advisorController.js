@@ -5,7 +5,7 @@ const Advisor = require("../models/Advisor");
 // 🔹 Signup Advisor
 exports.signupAdvisor = async (req, res) => {
   try {
-    const { firstname, lastname, email, phone, password, city, qualification } = req.body;
+    const { firstName, lastName, email, contactNumber, password, city, qualification } = req.body;
 
     // check if advisor exists
     const existingAdvisor = await Advisor.findOne({ email });
@@ -17,10 +17,10 @@ exports.signupAdvisor = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newAdvisor = new Advisor({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
-      phone,
+      contactNumber,
       password: hashedPassword,
       city,
       qualification
@@ -58,5 +58,28 @@ exports.loginAdvisor = async (req, res) => {
     res.json({ message: "Login successful", token });
   } catch (error) {
     res.status(500).json({ message: "Error logging in advisor", error: error.message });
+  }
+};
+
+// 🔹 Get Advisor Profile
+exports.getAdvisorProfile = async (req, res) => {
+  try {
+    const authHeader = req.header("Authorization");
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const advisor = await Advisor.findById(decoded.advisorId).select("-password");
+    if (!advisor) {
+      return res.status(404).json({ message: "Advisor not found" });
+    }
+
+    res.status(200).json(advisor);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching advisor profile", error: error.message });
   }
 };
