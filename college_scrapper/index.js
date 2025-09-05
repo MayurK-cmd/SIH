@@ -4,7 +4,7 @@ const csv = require('csv-parser');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = 7000;
 
 // Store colleges data in memory (this is for demo purposes, can be optimized)
 let colleges = [];
@@ -34,77 +34,71 @@ function filterColleges({ state, city, type, nameContains }) {
   });
 }
 
-// General POST route to fetch colleges based on type, state, and city
-app.post('/colleges', (req, res) => {
-  const { type, state, city } = req.body;
+// Route to get colleges based on type and state or city from the URL
+function createTypeRoutes(type) {
+  // Normal routes
+  app.get(`/${type}_colleges/state=:state`, (req, res) => {
+    const { state } = req.params;
+    const { city } = req.query; // Get city from query parameters
+    
+    const filteredColleges = filterColleges({ state, city, type, nameContains: '' });
 
-  if (!type) {
-    return res.status(400).json({ message: 'College type is required' });
-  }
+    if (filteredColleges.length === 0) {
+      return res.status(404).json({ message: `No ${type} colleges found in state: ${state}` });
+    }
 
-  // Fetch the filtered colleges
-  const filteredColleges = filterColleges({ type, state, city });
-  
-  if (filteredColleges.length === 0) {
-    return res.status(404).json({ message: `No ${type} colleges found for the specified parameters.` });
-  }
+    res.json(filteredColleges);
+  });
 
-  res.json(filteredColleges);
-});
+  app.get(`/${type}_colleges/city=:city`, (req, res) => {
+    const { city } = req.params;
+    const { state } = req.query; // Get state from query parameters
+    
+    const filteredColleges = filterColleges({ state, city, type, nameContains: '' });
 
-// New POST route for government colleges with type and government name filter
-app.post('/government-colleges', (req, res) => {
-  const { type, state, city } = req.body;
+    if (filteredColleges.length === 0) {
+      return res.status(404).json({ message: `No ${type} colleges found in city: ${city}` });
+    }
 
-  if (!type) {
-    return res.status(400).json({ message: 'College type is required' });
-  }
+    res.json(filteredColleges);
+  });
 
-  // Fetch the filtered government colleges (with type and "government" in the name)
-  const filteredColleges = filterColleges({ state, city, type, nameContains: 'government' });
+  // Government routes
+  app.get(`/government_${type}_colleges/state=:state`, (req, res) => {
+    const { state } = req.params;
+    const { city } = req.query; // Get city from query parameters
+    
+    const filteredColleges = filterColleges({ state, city, type, nameContains: 'government' });
 
-  if (filteredColleges.length === 0) {
-    return res.status(404).json({ message: 'No government colleges found for the specified parameters.' });
-  }
+    if (filteredColleges.length === 0) {
+      return res.status(404).json({ message: `No government ${type} colleges found in state: ${state}` });
+    }
 
-  res.json(filteredColleges);
-});
+    res.json(filteredColleges);
+  });
 
-// New POST route to search colleges by name (normal)
-app.post('/search-colleges', (req, res) => {
-  const { type, state, city } = req.body;
+  app.get(`/government_${type}_colleges/city=:city`, (req, res) => {
+    const { city } = req.params;
+    const { state } = req.query; // Get state from query parameters
+    
+    const filteredColleges = filterColleges({ state, city, type, nameContains: 'government' });
 
-  if (!type) {
-    return res.status(400).json({ message: 'College type is required' });
-  }
+    if (filteredColleges.length === 0) {
+      return res.status(404).json({ message: `No government ${type} colleges found in city: ${city}` });
+    }
 
-  // Fetch the filtered colleges (by name, type, and state, city is optional)
-  const filteredColleges = filterColleges({ state, city, type, nameContains: '' });
+    res.json(filteredColleges);
+  });
+}
 
-  if (filteredColleges.length === 0) {
-    return res.status(404).json({ message: `No colleges found for the specified parameters.` });
-  }
+// Create routes for each type of college
+const collegeTypes = [
+  'engineering', 'medical', 'management', 'pharmacy', 'dental', 'architecture', 
+  'research', 'universities', 'commerce', 'arts', 'law', 'agriculture'
+];
 
-  res.json(filteredColleges);
-});
-
-// New POST route to search government colleges by name
-app.post('/search-government-colleges', (req, res) => {
-  const { type, state, city } = req.body;
-
-  if (!type) {
-    return res.status(400).json({ message: 'College type is required' });
-  }
-
-  // Fetch the filtered government colleges (by name, type, and state, city is optional)
-  const filteredColleges = filterColleges({ state, city, type, nameContains: 'government' });
-
-  if (filteredColleges.length === 0) {
-    return res.status(404).json({ message: 'No government colleges found for the specified parameters.' });
-  }
-
-  res.json(filteredColleges);
-});
+// Loop through all the types and create the necessary routes
+collegeTypes.forEach(type => createTypeRoutes(type));
 
 // Start the server
 app.listen(PORT, () => {
