@@ -14,7 +14,7 @@
   "paths": {
     "/auth/signup": {
       "post": {
-        "summary": "Signup User",
+        "summary": "Signup Student",
         "requestBody": {
           "required": true,
           "content": {
@@ -44,7 +44,7 @@
     },
     "/auth/login": {
       "post": {
-        "summary": "Login User",
+        "summary": "Login Student",
         "requestBody": {
           "required": true,
           "content": {
@@ -67,7 +67,7 @@
     },
     "/auth/profile": {
       "get": {
-        "summary": "Get User Profile",
+        "summary": "Get Student Profile",
         "parameters": [
           {
             "name": "Authorization",
@@ -76,7 +76,7 @@
           }
         ],
         "responses": {
-          "200": { "description": "User profile data" }
+          "200": { "description": "Student profile data" }
         }
       }
     },

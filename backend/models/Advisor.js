@@ -8,7 +8,7 @@ const advisorSchema = new mongoose.Schema(
     password: { type: String, required: true },
     contactNumber: { type: String, required: true },
     city: { type: String, required: true },
-    qualification: { type: String, required: true }
+    qualification: { type: String, required: true },
   },
   { timestamps: true }
 );
