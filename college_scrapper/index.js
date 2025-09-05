@@ -91,6 +91,61 @@ function createTypeRoutes(type) {
   });
 }
 
+// New POST route to search colleges by name (normal)
+app.post('/search-colleges', (req, res) => {
+  const { type, name, state, city } = req.body; // Include state and city as optional
+
+  if (!type) {
+    return res.status(400).json({ message: 'College type is required' });
+  }
+  if (!name) {
+    return res.status(400).json({ message: 'College name is required' });
+  }
+
+  // Fetch the filtered colleges (by name, type, and optionally state/city)
+  const filteredColleges = filterColleges({
+    type,
+    nameContains: name,
+    state,
+    city
+  });
+
+  if (filteredColleges.length === 0) {
+    return res.status(404).json({ message: `No colleges found matching the parameters` });
+  }
+
+  res.json(filteredColleges);
+});
+
+// New POST route to search government colleges by name
+app.post('/search-government-colleges', (req, res) => {
+  const { type, name, state, city } = req.body; // Include state and city as optional
+
+  if (!type) {
+    return res.status(400).json({ message: 'College type is required' });
+  }
+  if (!name) {
+    return res.status(400).json({ message: 'College name is required' });
+  }
+
+  // Fetch the filtered government colleges (by name, type, state/city, and government in the name)
+  const filteredColleges = filterColleges({
+    type,
+    nameContains: name,
+    state,
+    city,
+    nameContains: 'government' // Ensure "government" is in the name
+  });
+
+  if (filteredColleges.length === 0) {
+    return res.status(404).json({ message: `No government colleges found matching the parameters` });
+  }
+
+  res.json(filteredColleges);
+});
+
+
+
 // Create routes for each type of college
 const collegeTypes = [
   'engineering', 'medical', 'management', 'pharmacy', 'dental', 'architecture', 
