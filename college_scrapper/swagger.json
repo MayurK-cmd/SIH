@@ -1,0 +1,360 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "College Search API",
+    "description": "API to search colleges based on type, state, city, and name.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:7000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/search-colleges": {
+      "post": {
+        "summary": "Search for colleges by name and type (with optional state and city)",
+        "operationId": "searchColleges",
+        "requestBody": {
+          "description": "Search criteria for colleges",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the college (e.g., 'engineering')",
+                    "example": "engineering"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the college (e.g., 'Harvard')",
+                    "example": "Harvard"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "State where the college is located (optional)",
+                    "example": "California"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "City where the college is located (optional)",
+                    "example": "San Francisco"
+                  }
+                },
+                "required": ["type", "name"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A list of colleges matching the search criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, missing required fields"
+          },
+          "404": {
+            "description": "No colleges found matching the search criteria"
+          }
+        }
+      }
+    },
+    "/search-government-colleges": {
+      "post": {
+        "summary": "Search for government colleges by name and type (with optional state and city)",
+        "operationId": "searchGovernmentColleges",
+        "requestBody": {
+          "description": "Search criteria for government colleges",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the college (e.g., 'engineering')",
+                    "example": "engineering"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name of the college (e.g., 'Government Medical College')",
+                    "example": "Government Medical College"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "State where the college is located (optional)",
+                    "example": "California"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "City where the college is located (optional)",
+                    "example": "Los Angeles"
+                  }
+                },
+                "required": ["type", "name"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A list of government colleges matching the search criteria",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request, missing required fields"
+          },
+          "404": {
+            "description": "No government colleges found matching the search criteria"
+          }
+        }
+      }
+    },
+    "/engineering_colleges/state={state}": {
+      "get": {
+        "summary": "Fetch a list of engineering colleges in a specific state",
+        "operationId": "getEngineeringCollegesByState",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "required": true,
+            "description": "State where the engineering colleges are located",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of engineering colleges in the specified state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No engineering colleges found in the specified state"
+          }
+        }
+      }
+    },
+    "/engineering_colleges/city={city}": {
+      "get": {
+        "summary": "Fetch a list of engineering colleges in a specific city",
+        "operationId": "getEngineeringCollegesByCity",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "description": "City where the engineering colleges are located",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of engineering colleges in the specified city",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No engineering colleges found in the specified city"
+          }
+        }
+      }
+    },
+    "/government_engineering_colleges/state={state}": {
+      "get": {
+        "summary": "Fetch a list of government engineering colleges in a specific state",
+        "operationId": "getGovernmentEngineeringCollegesByState",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "required": true,
+            "description": "State where the government engineering colleges are located",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of government engineering colleges in the specified state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No government engineering colleges found in the specified state"
+          }
+        }
+      }
+    },
+    "/government_engineering_colleges/city={city}": {
+      "get": {
+        "summary": "Fetch a list of government engineering colleges in a specific city",
+        "operationId": "getGovernmentEngineeringCollegesByCity",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "description": "City where the government engineering colleges are located",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of government engineering colleges in the specified city",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No government engineering colleges found in the specified city"
+          }
+        }
+      }
+    }
+  }
+}

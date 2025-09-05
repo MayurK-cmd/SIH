@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const csv = require('csv-parser');
 const bodyParser = require('body-parser');
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 const app = express();
 const PORT = 7000;
@@ -145,7 +147,7 @@ app.post('/search-government-colleges', (req, res) => {
 });
 
 
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Create routes for each type of college
 const collegeTypes = [
   'engineering', 'medical', 'management', 'pharmacy', 'dental', 'architecture', 
