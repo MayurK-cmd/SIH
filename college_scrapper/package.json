@@ -14,7 +14,9 @@
     "axios": "^1.11.0",
     "body-parser": "^2.2.0",
     "csv-parser": "^3.2.0",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "follow-redirects": "^1.15.11",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
   }

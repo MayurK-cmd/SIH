@@ -1,28 +1,38 @@
 const express = require('express');
 const fs = require('fs');
-const csv = require('csv-parser');
+//const csv = require('csv-parser');
 const bodyParser = require('body-parser');
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
+
 const app = express();
 const PORT = 7000;
 
-// Store colleges data in memory (this is for demo purposes, can be optimized)
+const { https } = require('follow-redirects'); // Notice we're using follow-redirects here
+const csv = require('csv-parser');
+
 let colleges = [];
 
-// Middleware to parse incoming JSON requests
-app.use(bodyParser.json());
+https.get('https://drive.google.com/uc?export=download&id=1Hpeaeetn3z7pkkAfI8GbDmxL0FnIt-js', (res) => {
+  if (res.statusCode !== 200) {
+    console.error(`Failed to get CSV file. Status Code: ${res.statusCode}`);
+    return;
+  }
 
-// Parse the CSV file and load data
-fs.createReadStream('colleges.csv')
-  .pipe(csv())
-  .on('data', (row) => {
-    colleges.push(row);
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed');
-  });
+  res
+    .pipe(csv())
+    .on('data', (row) => {
+      colleges.push(row);
+    })
+    .on('end', () => {
+      console.log('CSV file successfully processed from Google Drive');
+    });
+}).on('error', (err) => {
+  console.error('Error fetching CSV file:', err);
+});
+
+
 
 // Utility function to filter colleges based on multiple criteria
 function filterColleges({ state, city, type, nameContains }) {
