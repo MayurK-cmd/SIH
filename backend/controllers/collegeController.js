@@ -1,6 +1,6 @@
 // controllers/apiController.js
 const axios = require('axios');
-const apiUrl = 'http://localhost:7000'
+const apiUrl = 'https://college-data-glhv.onrender.com'
 
 const stateWiseColleges = async (req, res) => {
     try {
