@@ -180,6 +180,10 @@ const collegeTypes = [
 // Loop through all the types and create the necessary routes
 collegeTypes.forEach(type => createTypeRoutes(type));
 
+app.get("/", (req, res) => {
+  res.send("System running");
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

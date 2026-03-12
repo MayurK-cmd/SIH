@@ -21,6 +21,9 @@ app.use(cors({
 app.use(express.json());
 
 // routes
+app.get("/", (req, res) => {
+  res.send("System running");
+});
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/auth", require("./routes/authRoutes")); //done
 app.use("/api/courses", require("./routes/dataRoutes"));
